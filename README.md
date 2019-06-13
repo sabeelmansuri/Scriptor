@@ -4,36 +4,14 @@
 Scriptor is a solution for streamlining studying and reviewing at the University of California, San Diego. No longer do students have to manually search for specific information in the vast collection of knowledge that is the UC San Diego Podcast System. 
 
 Scriptor allows students to search for keywords and instantly be presented with the exact material they want. Scriptor returns precise timestamps in podcasts that match the information users seek, efficiently parsing through UCSD's vast database so students don't have to. Scriptor wraps this functionality with a personalized interface, allowing users to favorite, save their history, and more. Happy podcasting!
-
-## Login Credentials
-
-| Account Type  | Email | Password| 
-| ------------- | ------------- | ------ |
-| Gmail | scriptorTestCase@gmail.com | XXXXXX|
-| Scriptor (populated with data) | scriptorTestCase@gmail.com | XXXXXX |
-| Scriptor (fresh account) | testEmail@gmail.com | XXXXXX |
-
-(Un-redacted information is available on the Google Form submission.)
  
 ## Requirements
 - [ ] **Operating System:** Desktop/Laptop | Mac/Linux
 - [ ] **Browser:** Google Chrome, latest release
 - [ ] **Software:** Docker, Node, NPM, Git
 
-## Technical Support
-Have any issues with the installation below? Contact us at: 
-
-| Name  | Email | Phone | 
-| ------------- | ------------- | ------ |
-| Subhash Ramesh | XXX@ucsd.edu | (XXX) XXX-XXXX |
-| Sabeel Mansuri | XXX@ucsd.edu | (XXX) XXX-XXXX |
-
-(Un-redacted information is available on the Google Form submission.)
 
 ## Installation Instructions
-Scriptor is available online! Visit: `XXX` (Requires UCSD IP address)  
-(Un-redacted information is available on the Google Form submission.)
-
 If you want to install and build Scriptor locally, enter the following commands:
 ```shell
 git clone https://github.com/nlpathak/Scriptor
@@ -43,24 +21,13 @@ docker-compose build --no-cache
 
 ## How to Run
 #### Starting
-Scriptor is available online! Visit: `XXX` (Requires UCSD IP address)  
-(Un-redacted information is available on the Google Form submission.)
-
 If you want to run Scriptor locally, enter the following commands:
 ```shell
 docker-compose up -d frontend
 
-# Wait 20-30 seconds for the backend database to initialize before running the next command in a new terminal.
-# You can run the below line once http://localhost:5000 returns "{success:true}"
-# You only have to run the below import script when installing this project for the first time, or after clearing the database data with: docker-compose down -v.
+# Run the below line once http://localhost:5000 returns "{success:true}". You only have to run the below import script when installing this project for the first time, or after clearing the database data with: docker-compose down -v.
 
 docker-compose exec backend python3 scripts/import_data_into_elasticsearch.py
-```
-
-If you'd also like to import test users accounts (as shown in the table above), run the following command:
-```shell
-# Make sure that course podcasts have already been imported before running this command.
-docker-compose exec backend python3 scripts/load_test_users.py
 ```
 
 The app will be accessible at [http://localhost:3000](http://localhost:3000). The backend API will be accessible at [http://localhost:5000](http://localhost:5000).
@@ -71,12 +38,12 @@ To stop running the application (but retain the database), enter the following:
 docker-compose down
 ```
 
+## In Case of Failure
 If you get an error about possible orphan containers, run:
 ``` shell
 docker-compose down --remove-orphans
 ```
 
-## In Case of Failure
 End the application and clear all data with:
 ```shell
 docker-compose down -v
@@ -109,12 +76,6 @@ docker-compose exec backend python3 scripts/import_data_into_elasticsearch.py
 docker-compose exec backend python3 scripts/clear_users.py
 ```
 
-## Loading Test User Accounts
-```shell
-# Make sure that course podcasts have already been imported before running this command.
-docker-compose exec backend python3 scripts/load_test_users.py
-```
-
 ## Notes
 * All commands in the Installation, How to Run, and In Case of Failure sections should be run in the top-level, `Scriptor/` directory.
 * At this time, only the following classes are available for searching due to expensive computations: 
@@ -124,4 +85,4 @@ docker-compose exec backend python3 scripts/load_test_users.py
 ## Known Bugs
 * The `docker` commands sometimes return errors. This can be fixed by prepending every command with `sudo`.
 * The Forgot Password verification email is almost always sent to the user's spam folder.
-* Due to security limitations for the needed files for Forgot Password, this functionality is only available online (link provided above) and not locally.
+* Due to security limitations for the needed files for Forgot Password, this functionality is not available for extensions of this project (i.e. your copy).
